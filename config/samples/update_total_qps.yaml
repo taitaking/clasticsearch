@@ -1,0 +1,6 @@
+spec:
+  totalQPS: 2600
+#kubectl patch elasticweb elasticweb-sample \
+  #-n dev \
+  #--type merge \
+  #--patch "$(cat config/samples/update_total_qps.yaml)"

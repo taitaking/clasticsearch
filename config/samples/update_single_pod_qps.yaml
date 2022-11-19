@@ -1,0 +1,6 @@
+spec:
+  singlePodQPS: 800
+#kubectl patch elasticweb elasticweb-sample \
+  #-n dev \
+  #--type merge \
+  #--patch "$(cat config/samples/update_single_pod_qps.yaml)"
