@@ -157,7 +157,7 @@ func (r *ElasticWebReconciler) Reconcile(ctx context.Context, req ctrl.Request) 
 	// 根据单QPS和总QPS计算期望的副本数
 	expectReplicas := getExpectReplicas(instance)
 
-	// 当前deployment的期望副本数
+	// 当前deployment的真实副本数
 	realReplicas := *deployment.Spec.Replicas
 
 	log.Info(fmt.Sprintf("9. expectReplicas [%d], realReplicas [%d]", expectReplicas, realReplicas))
@@ -370,7 +370,7 @@ func createServiceIfNotExists(ctx context.Context, r *ElasticWebReconciler,
 
 }
 
-//根据单个QPS和总QPS计算pod数量
+// 根据单个QPS和总QPS计算pod数量
 func getExpectReplicas(elasticWeb *elasticwebv1.ElasticWeb) int32 {
 
 	// 单个pod的QPS
